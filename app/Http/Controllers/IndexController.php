@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use App\Handlers\ImageUploadHandler;
+use Illuminate\Pagination\Paginator;
 
 class IndexController extends Controller
 {
@@ -17,6 +18,7 @@ class IndexController extends Controller
     {
         $articles   = $article->with('category')->orderBy('created_at', 'desc')->paginate(10);
         $active     = $article->getActive();
+        Paginator::useBootstrap();
 
         return view('index/home', compact('articles', 'active'));
     }

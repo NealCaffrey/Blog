@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Pagination\Paginator;
 
 class CategoriesController extends Controller
 {
@@ -19,6 +20,7 @@ class CategoriesController extends Controller
         // 读取文章分类
         $articles = $article->with('category')->where('type', $category->id)->orderBy('created_at', 'desc')->paginate(10);
         $active = $article->getActive();
+        Paginator::useBootstrap();
 
         return view('categories.show', compact('articles', 'active'));
     }

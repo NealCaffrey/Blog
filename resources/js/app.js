@@ -19,7 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -27,15 +27,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-new Vue({
-    el: '#app',
-    methods: {
+Vue.createApp({
+    components:{
+        'example-component': require('./components/ExampleComponent.vue').default
+    },
+    methods:{
         search(e) {
-            if (e.currentTarget.value != ''){
+            if (e.currentTarget.value != null){
                 window.location.href = '/search/' + e.currentTarget.value;
             }
         },
-        star(e) {
+        star() {
             var num = $('#star').html();
             var id = $('#star').attr('data-content');
 
@@ -47,21 +49,14 @@ new Vue({
                 },
                 success:function () {
                     num = parseInt(num) + 1;
-                    $('#star').html(num)
+                    $('#star').html(num);
                 }
-            })
+            });
         },
-        change(e) {
+        change() {
             $('#navbar-list').toggle();
         }
-    },
-    mounted() {
-        var width = 0;
-        width = `${document.documentElement.clientWidth}`;
-        window.onresize = function temp() {
-            if (width >= 768) {
-                $('#navbar-list').hide();
-            }
-        };
     }
-});
+}).mount('#app');
+
+

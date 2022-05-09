@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use Illuminate\Pagination\Paginator;
 
 class ArticlesController extends Controller
 {
@@ -30,6 +31,7 @@ class ArticlesController extends Controller
     {
         $articles = $article->with('category')->where('title', 'like', "%$keyword%")->paginate(10);
         $active = $article->getActive();
+        Paginator::useBootstrap();
 
         return view('articles/search', compact('articles', 'keyword', 'active'));
     }

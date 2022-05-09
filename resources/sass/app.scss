@@ -1,8 +1,264 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Fontawesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-size: 16px;
+    font-weight: normal;
+    background: #f0f2f5;
+    height: 100%;
+    a{
+        color: #000000;
+    }
+    a:hover{
+        text-decoration: none;
+        color: #000000;
+    }
+    a:link {
+        color: #000000;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+span {
+    font-weight: 300!important;
+}
+
+.col-md-12 {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.margin-left-20 {
+    margin-left: 20px;
+}
+
+#app{
+    width: 100%;
+    height: 100%;
+}
+
+/* header */
+a.nav-link {
+    font-size:16px;
+    color: rgba(0, 0, 0, 0.8);
+}
+nav.navbar.navbar-expand-lg {
+    margin-bottom: 40px;
+    border-bottom:1px solid #e7e7e7;
+    box-shadow: 0 1px 11px 2px rgba(42,42,42,.1)
+}
+#search {
+    -webkit-border-radius:18px;//适配以webkit为核心的浏览器(chrome、safari等)
+    -moz-border-radius:18px;//适配firefox浏览器
+    -ms-border-radius:18px;//适配IE浏览器
+    -o-border-radius:18px;//适配opera浏览器
+    border-radius:18px;//适配所有浏览器(需要放在最后面，类似于if..else if..else..)
+    border:1px solid rgba(34,36,38,.15);
+    outline: none;
+    width: 200px;
+    height:35px;
+    padding: 1rem;
+    line-height: 5px;
+}
+
+#content {
+    min-height: 100%;
+    margin-bottom:100px;
+}
+
+/* body */
+.article {
+    border: 1px solid #e7e7e7;
+    border-radius:5px;
+    background-color: white;
+    padding:20px 30px;
+}
+.article-title{
+    font-size:22px;
+}
+.article-introduction{
+    line-height: 1.8;
+}
+.sidebar {
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    background-color: white;
+    .header {
+        border-bottom: 1px solid #e7e7e7;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    ul {
+        li {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin:10px 0;
+        }
+    }
+
+    .avatar {
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius:50%;
+            text-align: center;
+        }
+    }
+    .about-list {
+        line-height: 22px;
+        font-size:14px;
+        margin-bottom:1rem;
+        word-break: break-all;
+        p {
+            font-size:18px;
+            text-align: center;
+        }
+        i {
+            width: 1rem;
+            margin: 0 .35rem 0 0;
+        }
+    }
+}
+
+#show{
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    background-color: white;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:20px 30px;
+
+    #article-show {
+        font-size: 16px;
+        line-height: 2.5;
+        margin-top:40px;
+        word-wrap: break-word;
+        img {
+            max-width: 100%;
+            margin: 1em 0px;
+        }
+
+        pre {
+            margin: 1.5em -30px;
+
+            code {
+                padding: 1.5em 30px;
+            }
+        }
+    }
+
+    #article-footer {
+        margin-top:30px;
+        text-align:center;
+        font-size:28px;
+        color:rgb(165,165,165)
+    }
+}
+
+.tag{
+    background-color: rgba(0,0,0,0.05);
+    line-height: 22px;
+    border-radius: 3px;
+    padding:5px 10px;
+    font-size: 15px;
+    text-decoration: none;
+    color: rgba(0,0,0,0.54);
+}
+
+
+/* footer */
+footer {
+    border-top: 1px solid #eaeaea;
+    color: #777;
+    text-align: center;
+    width: 100%;
+    height:100px;
+    line-height:100px;
+    background-color:white;
+    font-size:14px;
+    z-index: 100;
+    margin-top: -100px;
+}
+
+@media(min-width:768px) {
+    #navIcon {
+        display: none;
+    }
+    #navbar-list {
+        display: none;
+    }
+}
+@media (max-width:768px) {
+    nav.navbar.navbar-expand-lg {
+        margin-bottom: 20px;
+    }
+    #searchBox {
+        display: none;
+    }
+    #navIcon{
+        font-size:24px;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .page-link {
+        padding: 0.5rem 0.5rem;
+    }
+    #show {
+        padding:20px 10px;
+
+        #article-show {
+            pre {
+                margin: 1.5em -10px;
+
+                code {
+                    padding: 1.5em 10px;
+                }
+            }
+            img {
+                margin: 1em 0px;
+            }
+        }
+    }
+    #create_at {
+        display: none;
+    }
+    #navbar-list{
+        display: none;
+        border-top:1px solid #e7e7e7;
+        padding-top:10px;
+        .nav-item {
+            line-height: 50px;
+            height: 50px;
+            font-size:14px;
+        }
+    }
+    footer {
+        height:70px;
+        line-height:70px;
+        margin-top: -70px;
+    }
+}

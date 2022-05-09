@@ -10,11 +10,11 @@
                     <i class="fa fa-align-left text-muted"></i>
                     <a href="{{ route('category.show', $article->category->title) }}">{{ $article->category->title }}</a>
                 </span>
-                <span>
+                <span class="margin-left-20">
                   <i class="fa fa-eye text-muted pl-3"></i>
                   <span>{{ $article->visits }}</span>
                 </span>
-                <span class="float-right" id="create_at">{{ $article->created_at }}</span>
+                <span class="float-right margin-left-20" id="create_at">{{ $article->created_at }}</span>
             </div>
         </div>
     </li>
